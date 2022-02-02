@@ -1,3 +1,4 @@
+"""Test the message box example"""
 from pytestqt.qt_compat import qt_api
 
 from PySide6.QtWidgets import QMessageBox
@@ -5,6 +6,7 @@ from PySide6.QtWidgets import QMessageBox
 from messageboxex import Window
 
 def test_about_clicked(qtbot, monkeypatch):
+    """Test the about button"""
     widget = Window()
     qtbot.addWidget(widget)
 
@@ -13,6 +15,7 @@ def test_about_clicked(qtbot, monkeypatch):
     assert widget.label.text() == "About clicked"
 
 def test_warning_clicked(qtbot, monkeypatch):
+    """Test the warning button"""
     widget = Window()
     qtbot.addWidget(widget)
 
@@ -22,6 +25,7 @@ def test_warning_clicked(qtbot, monkeypatch):
     assert widget.warning
 
 def test_info_clicked(qtbot, monkeypatch):
+    """Test the info button"""
     widget = Window()
     qtbot.addWidget(widget)
 
@@ -30,6 +34,7 @@ def test_info_clicked(qtbot, monkeypatch):
     assert widget.label.text() == "Info was clicked"
 
 def test_like_clicked_yes(qtbot, monkeypatch):
+    """Test the like button - answered yes"""
     widget = Window()
     qtbot.addWidget(widget)
 
@@ -39,6 +44,7 @@ def test_like_clicked_yes(qtbot, monkeypatch):
     assert widget.label.text() == "I Like Pyside6"
 
 def test_like_clicked_no(qtbot, monkeypatch):
+    """Test the like button - answered no"""
     widget = Window()
     qtbot.addWidget(widget)
 

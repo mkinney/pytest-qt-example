@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
+"""Simple PyQt example"""
+
 import sys
 from PySide6.QtWidgets import QApplication, QLabel, QWidget, QPushButton, QFormLayout
 
 class HelloWidget(QWidget):
+    """HelloWidget example"""
+
     def __init__(self):
+        """Constructor"""
         # Window
         super(HelloWidget, self).__init__()
         self.resize(200, 150)

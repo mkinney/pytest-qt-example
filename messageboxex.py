@@ -1,11 +1,17 @@
 #!/usr/bin/env python
-# example from https://codeloop.org/python-tutorial-create-messagebox-with-pyside2/
-from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QVBoxLayout, QLabel
+""" example from https://codeloop.org/python-tutorial-create-messagebox-with-pyside2/
+    demonstrating various dialog boxes
+"""
+
 import sys
+from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QVBoxLayout, QLabel
 from PySide6.QtGui import QIcon
 
 class Window(QWidget):
+    """custom Window class derived from QWidget"""
+
     def __init__(self):
+        """constructor"""
         super().__init__()
 
         self.setWindowTitle("Pyside6 MessageBox")
@@ -43,25 +49,29 @@ class Window(QWidget):
 
 
     def setIcon(self):
+        """Se the icon"""
         appIcon = QIcon("icon.png")
         self.setWindowIcon(appIcon)
 
     def show_about(self):
+        """Show about dialog"""
         QMessageBox.about(self, "AboutBox", "This is about application")
         # can test based off of some attribute like the text of the label
         self.label.setText("About clicked")
 
     def show_warning(self):
+        """Show warning dialog"""
         QMessageBox.warning(self, "Warning", "This is Warning")
         # can test based off of some attribute or a member
         self.warning = True
 
     def show_info(self):
+        """Show info dialog"""
         QMessageBox.information(self, "Info", "This is Information")
         self.label.setText("Info was clicked")
 
     def show_question(self):
-        """Not sure how to test this with pytest-qt"""
+        """Show y/n dialog"""
         reply = QMessageBox.question(self, "Question MessageBox", "Do You Like Pyside6",
                                      QMessageBox.Yes | QMessageBox.No)
 
