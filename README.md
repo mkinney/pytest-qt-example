@@ -1,20 +1,22 @@
-Simple example using pytest-qt
+# Simple example using pytest-qt
 
+# To setup
 python3 -m venv venv
 venv/bin/activate
 pip install -r requirements.txt
-
 chmod +x hello.py
-./hello.py
-
 chmod +x messageboxex.py
+
+# To run the test apps
+./hello.py
 ./messageboxex.py
 
+# To test
 pytest
 
-example output:
+# Example output:
 
-
+```
 % pytest -s -vv
 ================================================================ test session starts =================================================================
 platform darwin -- Python 3.9.9, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /nix/code/pytest-qt-example/venv/bin/python3.9
@@ -32,3 +34,4 @@ test_messageboxex.py::test_like_clicked_yes PASSED
 test_messageboxex.py::test_like_clicked_no PASSED
 
 ================================================================= 6 passed in 0.39s ==================================================================
+```
