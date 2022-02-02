@@ -8,12 +8,34 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Pyside2 MessageBox")
+        self.setWindowTitle("Pyside6 MessageBox")
         self.setGeometry(300,200,300,200)
 
         self.setIcon()
 
-        self.create_button()
+        vbox = QVBoxLayout()
+
+        self.btn1 = QPushButton("Open About MessageBox")
+        self.btn1.clicked.connect(self.show_about)
+
+        self.btn2 = QPushButton("Open Warning MessageBox")
+        self.btn2.clicked.connect(self.show_warning)
+
+        self.btn3 = QPushButton("Open Information MessageBox")
+        self.btn3.clicked.connect(self.show_info)
+
+        self.label = QLabel()
+
+        self.btn4 = QPushButton("Open Question MessageBox")
+        self.btn4.clicked.connect(self.show_question)
+
+        vbox.addWidget(self.btn1)
+        vbox.addWidget(self.btn2)
+        vbox.addWidget(self.btn3)
+        vbox.addWidget(self.btn4)
+        vbox.addWidget(self.label)
+
+        self.setLayout(vbox)
 
         self.show()
 
@@ -21,60 +43,31 @@ class Window(QWidget):
         appIcon = QIcon("icon.png")
         self.setWindowIcon(appIcon)
 
-
-    def create_button(self):
-        vbox = QVBoxLayout()
-
-        btn1 = QPushButton("Open About MessageBox")
-        btn1.clicked.connect(self.show_about)
-
-        btn2 = QPushButton("Open Warning MessageBox")
-        btn2.clicked.connect(self.show_warning)
-
-        btn3 = QPushButton("Open Information MessageBox")
-        btn3.clicked.connect(self.show_info)
-
-        self.label = QLabel()
-
-        btn4 = QPushButton("Open Question MessageBox")
-        btn4.clicked.connect(self.show_question)
-
-
-        vbox.addWidget(btn1)
-        vbox.addWidget(btn2)
-        vbox.addWidget(btn3)
-        vbox.addWidget(btn4)
-        vbox.addWidget(self.label)
-
-        self.setLayout(vbox)
-
-
     def show_about(self):
         QMessageBox.about(self, "AboutBox", "This is about application")
+        self.label.setText("About clicked")
 
     def show_warning(self):
         QMessageBox.warning(self, "Warning", "This is Warning")
+        self.label.setText("Warning was clicked")
 
     def show_info(self):
         QMessageBox.information(self, "Info", "This is Information")
-
+        self.label.setText("Info was clicked")
 
     def show_question(self):
-        reply = QMessageBox.question(self, "Question MessageBox", "Do You Like Pyside2",
+        reply = QMessageBox.question(self, "Question MessageBox", "Do You Like Pyside6",
                                      QMessageBox.Yes | QMessageBox.No)
 
-
         if reply == QMessageBox.Yes:
-            self.label.setText("I Like Pyside2")
+            self.label.setText("I Like Pyside6")
 
         elif reply == QMessageBox.No:
-            self.label.setText("I Dont Like Pyside2")
+            self.label.setText("I Dont Like Pyside6")
 
 
-
-
-myapp = QApplication(sys.argv)
-window = Window()
-# minor change from example
-myapp.exec()
-sys.exit()
+if __name__ == "__main__":
+    myapp = QApplication(sys.argv)
+    window = Window()
+    myapp.exec()
+    sys.exit()
