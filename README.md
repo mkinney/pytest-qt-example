@@ -1,18 +1,34 @@
 # Simple example using pytest-qt
 
 # To setup
+
+Run the following commands to setup a python virtual environment, install the requirements int and set the execution flag on the two sample scripts.
+
+```
 python3 -m venv venv
 venv/bin/activate
 pip install -r requirements.txt
 chmod +x hello.py
 chmod +x messageboxex.py
+```
 
 # To run the test apps
+
+```
 ./hello.py
+```
+
+or
+
+```
 ./messageboxex.py
+```
 
 # To test
+
+```
 pytest
+```
 
 # Example output:
 
@@ -34,4 +50,10 @@ test_messageboxex.py::test_like_clicked_yes PASSED
 test_messageboxex.py::test_like_clicked_no PASSED
 
 ================================================================= 6 passed in 0.39s ==================================================================
+```
+
+# To run a code coverage report for messageboxex
+
+```
+pytest --cov-report html --cov messageboxex
 ```
