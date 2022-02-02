@@ -1,4 +1,3 @@
-from pytestqt import qtbot
 
 def test_hello(qtbot):
     widget = HelloWidget()
