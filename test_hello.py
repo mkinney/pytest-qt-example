@@ -1,3 +1,6 @@
+from pytestqt.qt_compat import qt_api
+
+from hello import HelloWidget
 
 def test_hello(qtbot):
     widget = HelloWidget()
