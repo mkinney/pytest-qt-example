@@ -35,9 +35,12 @@ class Window(QWidget):
         vbox.addWidget(self.btn4)
         vbox.addWidget(self.label)
 
+        self.warning = None
+
         self.setLayout(vbox)
 
         self.show()
+
 
     def setIcon(self):
         appIcon = QIcon("icon.png")
@@ -45,17 +48,20 @@ class Window(QWidget):
 
     def show_about(self):
         QMessageBox.about(self, "AboutBox", "This is about application")
+        # can test based off of some attribute like the text of the label
         self.label.setText("About clicked")
 
     def show_warning(self):
         QMessageBox.warning(self, "Warning", "This is Warning")
-        self.label.setText("Warning was clicked")
+        # can test based off of some attribute or a member
+        self.warning = True
 
     def show_info(self):
         QMessageBox.information(self, "Info", "This is Information")
         self.label.setText("Info was clicked")
 
     def show_question(self):
+        """Not sure how to test this with pytest-qt"""
         reply = QMessageBox.question(self, "Question MessageBox", "Do You Like Pyside6",
                                      QMessageBox.Yes | QMessageBox.No)
 

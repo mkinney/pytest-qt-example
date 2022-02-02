@@ -7,4 +7,7 @@ pip install -r requirements.txt
 chmod +x hello.py
 ./hello.py
 
+chmod +x messageboxex.py
+./messageboxex.py
+
 pytest
