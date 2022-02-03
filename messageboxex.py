@@ -89,14 +89,9 @@ class Window(QWidget):
             self.label.setText("I Dont Like Pyside6")
 
 
-def main():
-    """Main loop"""
-    # TODO: Do not know how to test this code
+if __name__ == "__main__":
     myapp = QApplication(sys.argv)
     # pylint: disable=unused-variable
     window = Window()
     myapp.exec()
     sys.exit()
-
-if __name__ == "__main__":
-    main()
