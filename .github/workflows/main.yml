@@ -30,16 +30,11 @@ jobs:
     - name: Run tests
       run: |
         pytest --cov-report xml --cov messageboxex
-        
-    - name: Prep upload
-      run: |
-        curl -Os https://uploader.codecov.io/latest/macos/codecov chmod +x codecov ./codecov
-        chmod +x codecov
-        ./codecov
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
+        token: ${{ secrets.CODECOV_TOKEN }}
         files: ./coverage.xml
         flags: unittests
         name: codecov-umbrella
