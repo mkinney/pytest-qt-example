@@ -9,9 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.9"]
     steps:
     
     - uses: actions/checkout@v2
@@ -28,7 +29,7 @@ jobs:
         
     - name: Run tests
       run: |
-        pytest --cov-report=xml --cov=messageboxex
+        pytest --cov-report xml --cov messageboxex
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
