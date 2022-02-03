@@ -1,5 +1,8 @@
 # Simple example using pytest-qt
 
+[![CI](https://github.com/mkinney/pytest-qt-example/actions/workflows/main.yml/badge.svg)](https://github.com/mkinney/pytest-qt-example/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/mkinney/pytest-qt-example/branch/master/graph/badge.svg?token=FDF9R46W31)](https://codecov.io/gh/mkinney/pytest-qt-example)
+
 # To setup
 
 Run the following commands to setup a python virtual environment, install the requirements int and set the execution flag on the two sample scripts.
