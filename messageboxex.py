@@ -17,7 +17,7 @@ class Window(QWidget):
         self.setWindowTitle("Pyside6 MessageBox")
         self.setGeometry(300,200,300,200)
 
-        self.setIcon()
+        self.set_icon()
 
         vbox = QVBoxLayout()
 
@@ -35,11 +35,15 @@ class Window(QWidget):
         self.btn4 = QPushButton("Open Question MessageBox")
         self.btn4.clicked.connect(self.show_question)
 
+        self.quit_button = QPushButton("Quit")
+        self.quit_button.clicked.connect(self.quit_action)
+
         vbox.addWidget(self.btn1)
         vbox.addWidget(self.btn2)
         vbox.addWidget(self.btn3)
         vbox.addWidget(self.btn4)
         vbox.addWidget(self.label)
+        vbox.addWidget(self.quit_button)
 
         self.warning = None
 
@@ -47,8 +51,11 @@ class Window(QWidget):
 
         self.show()
 
+    def quit_action(self):
+        """Quit the application from a button"""
+        QApplication.quit()
 
-    def setIcon(self):
+    def set_icon(self):
         """Se the icon"""
         appIcon = QIcon("icon.png")
         self.setWindowIcon(appIcon)
@@ -82,8 +89,13 @@ class Window(QWidget):
             self.label.setText("I Dont Like Pyside6")
 
 
-if __name__ == "__main__":
+def main():
+    """Main loop"""
+    # TODO: Do not know how to test this code
     myapp = QApplication(sys.argv)
     window = Window()
     myapp.exec()
     sys.exit()
+
+if __name__ == "__main__":
+    main()
