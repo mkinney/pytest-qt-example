@@ -93,6 +93,7 @@ def main():
     """Main loop"""
     # TODO: Do not know how to test this code
     myapp = QApplication(sys.argv)
+    # pylint: disable=unused-variable
     window = Window()
     myapp.exec()
     sys.exit()
